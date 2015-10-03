@@ -1,3 +1,5 @@
+;hw11
+;Find roots of -0.618x2 + 1.618x + 1.732 = 0
 (display "One root is ")
 (display
  (/
