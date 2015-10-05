@@ -1,0 +1,61 @@
+;hw13
+;using symbols (aka variables)
+
+(define fav 5)
+
+;~~~~~~~~~~~~~~~~~~~~~~FAVORITE NUMBER~~~~~~~~~~~~~~~~~~~~~~
+;(display "My favorite number is ")
+;(display fav) (newline)
+
+;(display "My favorite number divided by 2 is ")
+;(display (/ fav 2)) (newline)
+
+;;display negative fav
+;(display "The negative of my favorite number is ")
+;(display (* (abs fav) -1)) (newline)
+
+
+;~~~~~~~~~~~~~~~~~~~SECOND-FAVORITE NUMBER~~~~~~~~~~~~~~~~~~~
+(display "The absolute value of my second-favorite number is ")
+(display (abs fav))(newline)
+
+(display "The fourth root of the fourth power of my second-favorite number is ")
+(display fav)(newline)
+
+
+;~~~~~~~~~~~~~~~~~~~QUADRATIC EQUATION~~~~~~~~~~~~~~~~~~~
+(define a 2.71828) (define b 7.64) (define c 1.616)
+
+(display "One root is ")
+(display
+ (/
+  (-
+   (* (abs b) -1)
+   (sqrt
+    (-
+     (expt b 2)
+     (* 4 a c)
+     )
+    )
+   )
+  (* 2 a)
+  )
+ )
+
+(newline)
+
+(display "The other root is ")
+(display
+ (/
+  (+
+   (* (abs b) -1)
+   (sqrt
+    (-
+     (expt b 2)
+     (* 4 a c)
+     )
+    )
+   )
+  (* 2 a)
+  )
+ )
