@@ -21,7 +21,7 @@
 (display (abs fav))(newline)
 
 (display "The fourth root of the fourth power of my second-favorite number is ")
-(display fav)(newline)
+(display (expt (expt fav 4) 1/4))(newline)
 (newline)
 
 ;~~~~~~~~~~~~~~~~~~~QUADRATIC EQUATION~~~~~~~~~~~~~~~~~~~
