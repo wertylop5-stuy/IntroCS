@@ -12,7 +12,7 @@
 
 ;display negative fav
 (display "The negative of my favorite number is ")
-(display (* fav -1)) (newline)
+(display (- fav)) (newline)
 (newline)
 
 
@@ -39,7 +39,7 @@
 (display
  (/
   (-
-   (* b -1) discriminant_sqrt
+   (- b) discriminant_sqrt
    )
   (* 2 a)
   )
@@ -51,7 +51,7 @@
 (display
  (/
   (+
-   (* b -1) discriminant_sqrt
+   (- b) discriminant_sqrt
    )
   (* 2 a)
   )
