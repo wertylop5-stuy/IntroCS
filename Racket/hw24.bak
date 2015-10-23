@@ -1,0 +1,8 @@
+;hw24
+;Return of GoF
+;author: Stanley Lin <slin55055@gmail.com>
+;worked with no one
+;help from no one
+
+(display "#0 circleArea_fromRadius") (newline)
+(display "-----------------") (newline) (newline)
