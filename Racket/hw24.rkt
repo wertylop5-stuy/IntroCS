@@ -39,7 +39,7 @@
 
 (define GofExcludedFromTheGofGof
   (lambda (sophs)
-    (modulo (units sophs) 5)))
+    (modulo (getGoFGoF sophs) 5)))
 
 (display (GofExcludedFromTheGofGof 863))
 (newline)
@@ -60,7 +60,7 @@
 
 (define GoFExcludedFromTheGofGofGof
   (lambda (sophs)
-    (modulo (GofExcludedFromTheGofGof sophs) 5)))
+    (modulo (getGofGofGof sophs) 5)))
 
 (display (GoFExcludedFromTheGofGof 863))
 (newline)
@@ -76,7 +76,7 @@
 
 (define GoFExcludedFromTheGofGofGofGof
   (lambda (sophs)
-    (modulo (GofExcludedFromTheGofGofGof sophs) 5)))
+    (modulo (getGofGofGofGof sophs) 5)))
 
 (display (GoFExcludedFromTheGofGofGofGof 863))
 (newline)
@@ -91,7 +91,7 @@
 
 (define GoFExcludedFromTheGofGofGofGofGof
   (lambda (sophs)
-    (modulo (GofExcludedFromTheGofGofGofGof sophs) 5)))
+    (modulo (getGofGofGofGofGof sophs) 5)))
 
 (display (GoFExcludedFromTheGofGofGofGofGof 863))
 (newline)
