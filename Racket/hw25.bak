@@ -1,0 +1,19 @@
+; template for general homework
+
+;  hw#25
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 5:30pm
+
+(display "#1 getDigit") (newline)
+(define getDigit
+  (lambda (number base place)
+    (modulo (quotient number (expt base place)) 5)
+    )) ; end of lambda and define
+
+
+; tests
+(display (#? ))
+(display " ...should be #?") (newline)
+(display "-----------------") (newline) (newline)
