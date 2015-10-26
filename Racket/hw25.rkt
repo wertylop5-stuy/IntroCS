@@ -1,6 +1,7 @@
 ; template for general homework
 
 ;  hw#25
+;  more quotient and modulo
 ;   "Stanley Lin <slin55055@gmail.com> period9
 ;   worked with no one
 ;   help from no one
