@@ -1,0 +1,21 @@
+;  hw#26
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 6:20pm
+
+(display "#1 getDigit") (newline)
+;#t
+;#f
+;#t
+;binds #t to p
+;#f
+;#t
+
+(display (and (<= 3 4)(>= 4 3)))(newline)
+(display (and (<= 3 4)(>= 4 3)(> 3 4) ))(newline)
+(display (or (<= 3 4)(>= 4 3)(> 3 4) ))(newline)
+
+(define p (and (<= 3 4)(>= 4 3)))
+(display (not p))(newline)
+(display (not (not p)))(newline)
