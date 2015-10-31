@@ -1,0 +1,25 @@
+;  hw#30
+;  nested if
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 4:48pm
+
+(display "#1 three-part invention") (newline)
+
+(define three
+  (lambda (w)
+    (if (< w 0)
+        -1
+        (if (<= w 4)
+            3.5
+            7)
+        )))
+
+(display (three -1))(newline);-1
+(display (three 0))(newline);3.5
+(display (three 3))(newline);3.5
+(display (three 4))(newline);7
+(display (three 5))(newline);7
+
+(display "-----------------") (newline) (newline)
