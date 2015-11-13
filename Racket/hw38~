@@ -1,0 +1,7 @@
+;  first and rest of lists with car and cdr
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 2:40pm
+
+(display "#0 max3, revisited") (newline)
