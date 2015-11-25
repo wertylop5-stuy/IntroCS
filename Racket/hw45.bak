@@ -1,0 +1,18 @@
+;  more ToH
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 7:02pm
+
+(display "#1 signature and test") (newline)
+
+(define (ToH a b c amt)
+  (display "    ")(display a)(newline)
+  (display "    ")(display b)(newline)
+  (display "    ")(display c)(newline)
+  (display "    ")(display amt)(newline))
+
+(display (ToH "a""b""c" 6))(newline)
+(display (ToH "b""a""c" 2))(newline)
+
+(display "-----------------") (newline) (newline)
