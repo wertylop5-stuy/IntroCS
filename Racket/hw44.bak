@@ -1,0 +1,23 @@
+;  strings and towers of Hanoi
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 7:11pm
+
+(display "#1 concatenate strings") (newline)
+
+(define who? "man")
+(define steps "1")
+(define small
+  (string-append "That's " steps " small step for a " who?))
+(define giant
+  (string-append steps " giant leap for " who? "kind"))
+
+(define (combo a b)
+  (string-append small "; " giant))
+
+(display (combo small giant))(newline)
+(display "...should be That's 1 small step for a man; 1 giant leap for mankind.")
+(newline)
+
+(display "-----------------") (newline) (newline)
