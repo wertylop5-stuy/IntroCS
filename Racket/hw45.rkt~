@@ -13,12 +13,12 @@
   (display "    ")(display amt)(newline)(newline)
 
   (cond
-    ((= 1 amt) (string-append "Move the top disk from " a " to " c "\n"))
-    (else (string-append (ToH a c b (- amt 1))
-                         "Move the top disk from " a " to " c "\n"
-                         (ToH b a c (- amt 1))))))
+    ((= 1 amt) (string-append "Move the top disk from " a " to " c))
+    (else (ToH a c b (- amt 1))
+          (string-append "  Move the top disk from " a " to " c)
+          (ToH b a c (- amt 1)))))
 
-;(display (ToH "a""b""c" 1))(newline);Move top disk from a to c
+(display (ToH "a""b""c" 1))(newline);Move top disk from a to c
 (display (ToH "a""b""c" 5))(newline);Move top disk from b to c
 
 (display "-----------------") (newline) (newline)
