@@ -10,8 +10,7 @@ Structuring questions for recursive problems
 ---------------------------
 0a. What problem are you asked to solve?
     and What does "size" mean in the context of that problem?
-Find the atoms in a list of n elements
-Find the even atoms in a list of n elements
+Find the atoms in a list;
 
 0b. What samples will test the procedure and what answers are
     required? You must know the expected answers, and tests
@@ -37,9 +36,9 @@ He can find the atoms in a list minus the first element.
 1b. What sub-problem will you ask Mr. Brooks to solve? and
     How will you use Mr. Brooks's answer to construct your own?
 first element: if first element list, find atoms in that list. else
-    return 0
-remainder of list: find the atoms in a list n - 1
-how to join it: add with the + operator and 1
+    
+remainder of list: 
+how to join it: add with the + operator
 
 
 
