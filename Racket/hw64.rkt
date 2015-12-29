@@ -1,14 +1,25 @@
+;  hw#64
+;  recursion
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 11:30am
+
+
+;tot starts as 0
 (define (sumOfList x tot)
   (cond
     ((null? x) tot)
     (else (sumOfList (cdr x) (+ (car x) tot)))))
 
+;tot starts as 0
 (define (sumOfEvens x tot)
   (cond
     ((null? x) tot)
     ((even? (car x)) (sumOfEvens (cdr x) (+ (car x) tot)))
     (else (sumOfEvens (cdr x) tot))))
 
+;ans starts as empty list
 (define (reverseOfList x ans)
   (cond
     ((null? x) ans)
