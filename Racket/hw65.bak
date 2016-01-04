@@ -1,0 +1,4 @@
+(define (repeat value times)
+  (cond
+    ((= times 0) '())
+    (else (repeat (list (car value) value) (- times 1)))))
