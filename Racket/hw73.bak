@@ -1,0 +1,13 @@
+;  hw#73
+;  extracting
+;   "Stanley Lin <slin55055@gmail.com> period9
+;   worked with no one
+;   help from no one
+;   time started: 5:39am
+
+(car '(sample problem)) (newline);sample
+
+(car (cdr '(a (b) c))) (car (car (cdr '(a (b) c)))) (newline);(b)b
+
+(car (cdr (cdr (cdr (cdr '(init later muchLater stillLater final)))))) (newline);final
+
