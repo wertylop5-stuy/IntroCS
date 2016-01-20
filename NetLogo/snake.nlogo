@@ -1,21 +1,63 @@
 ;only supports one turtle as a result
 globals[turtleX turtleY]
 
-patches-own[tail]
+patches-own[life]
 turtles-own[snakeSize]
 
-;sets patches behind the snake
-;num
-to setTail ;[num]
-  ask patches with [pxcor = turtleX] [
+;util
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+;color the patch beneath the turtle and set it to snakeSize
+to drawPatch
+  set pcolor red
+  set life snakeSize
+end
+
+;continously run and reduce patch life
+to reduceLife
+  if pcolor = red [
+    set life life - 1
   ]
 end
 
-  ;create a turtle and a random patch green
-  ;creating the tail
-  ;    get turtle pos, turn snakeSize patches behind it red
-  ;    intialize head patch to snakeSize
+;check if life reaches zero
+to checkDeath
+  if life = 0 and pcolor = red[
+    set pcolor black
+  ]
+end
+
+;see if turtle hits its tail or the wall
+to checkCollision
+  if pcolor = red and life < snakeSize [
+    die
+  ]
+  if pxcor = max-pxcor or pxcor = min-pxcor or
+  pycor = max-pycor or pycor = min-pycor [
+    die
+  ]
+end
+
+;check if snake ate a pellet
+to eat
+  if pcolor = green [
+    set snakeSize snakeSize + 1
+    ask one-of patches [set pcolor green]
+    ask patches with [pcolor = red] [
+      set life life + 1
+    ]
+  ]
+end
+
+
+
+;main functions
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+;create a turtle and a random patch green
+;creating the tail
+;    get turtle pos, turn snakeSize patches behind it red
+;    intialize head patch to snakeSize
 to setup
   ca
   cro 1 [
@@ -33,11 +75,66 @@ to setup
 end
 
 to go
+  wait speed
   ask turtles [
     set turtleX xcor
     set turtleY ycor
+    moveOn
+    ;checkCollision
+    ;eat
   ]
+  ask patches [
+    reduceLife
+    checkDeath
+  ]
+  if not any? turtles [stop]
 end
+
+;direction/movement functions
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+;automatically move forward
+to moveOn
+  ifelse heading = 0 [
+    move-to patch xcor (ycor + 1)
+  ]
+  [
+    ifelse heading = 90 [
+      move-to patch (xcor + 1) ycor
+    ]
+    [
+      ifelse heading = 180 [
+        move-to patch xcor (ycor - 1)
+      ]
+      ;must be 270
+      [
+        move-to patch (xcor - 1) ycor
+      ]
+    ]
+  ]
+
+  eat
+  checkCollision
+  drawPatch
+end
+
+to goUp
+  set heading 0
+end
+
+to goRight
+  set heading 90
+end
+
+to goDown
+  set heading 180
+end
+
+to goLeft
+  set heading 270
+end
+
+
 @#$#@#$#@
 GRAPHICS-WINDOW
 210
@@ -53,8 +150,8 @@ GRAPHICS-WINDOW
 1
 1
 0
-1
-1
+0
+0
 1
 -16
 16
@@ -65,6 +162,123 @@ GRAPHICS-WINDOW
 1
 ticks
 30.0
+
+BUTTON
+88
+205
+151
+238
+NIL
+goUp
+NIL
+1
+T
+TURTLE
+NIL
+W
+NIL
+NIL
+1
+
+BUTTON
+80
+261
+157
+294
+NIL
+goDown
+NIL
+1
+T
+TURTLE
+NIL
+S
+NIL
+NIL
+1
+
+BUTTON
+4
+261
+71
+294
+NIL
+goLeft
+NIL
+1
+T
+TURTLE
+NIL
+A
+NIL
+NIL
+1
+
+BUTTON
+74
+318
+148
+351
+NIL
+goRight
+NIL
+1
+T
+TURTLE
+NIL
+D
+NIL
+NIL
+1
+
+BUTTON
+128
+69
+191
+102
+NIL
+go
+T
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+BUTTON
+41
+68
+104
+101
+NIL
+setup
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+SLIDER
+23
+107
+195
+140
+speed
+speed
+0.01
+1
+0.12
+0.01
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
