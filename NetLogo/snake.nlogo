@@ -1,4 +1,5 @@
-
+;only supports one turtle as a result
+globals[turtleX turtleY]
 
 patches-own[tail]
 turtles-own[snakeSize]
@@ -6,22 +7,25 @@ turtles-own[snakeSize]
 ;sets patches behind the snake
 ;num
 to setTail ;[num]
+  ask patches with [pxcor = turtleX] [
 
+  ]
 end
 
-;Spawn a turtle and a random patch green
-;creating the tail
-;    get turtle pos, turn snakeSize patches behind it red
-;    intialize head patch to snakeSize
+  ;create a turtle and a random patch green
+  ;creating the tail
+  ;    get turtle pos, turn snakeSize patches behind it red
+  ;    intialize head patch to snakeSize
 to setup
   ca
   cro 1 [
     set size 2
     set snakeSize 5
-    ]
-  let turtleX xcor
+    set turtleX xcor
+    set turtleY ycor
+  ]
 
-  ask turtles with [pxcor = xcor][
+  ask patches with [pxcor = turtleX][
 
   ]
 
@@ -29,7 +33,10 @@ to setup
 end
 
 to go
-
+  ask turtles [
+    set turtleX xcor
+    set turtleY ycor
+  ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
