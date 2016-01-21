@@ -37,9 +37,10 @@ to go
   set duration duration + 1
   if not any? turtles [ stop ]
   growGrass
-  ask patches [
-  colorWorld
-  ]
+  ;ask patches [
+  ;colorWorld
+  ;]
+  ;colorWorld
 end
 
 
@@ -69,7 +70,7 @@ to move-and-munch
         show energy
         show grass
 
-        let enTaken random grass
+        let enTaken random (grass + 1)
         set energy energy + enTaken
         set grass grass - enTaken
 
@@ -77,10 +78,10 @@ to move-and-munch
         show energy
         show grass
 
-        colorWorld
+
       ]
 
-
+      colorWorld
     ]
   ]
 
@@ -97,7 +98,7 @@ end
 
 to growGrass
   ;only grow grass if the duration is a mulitple of 7
-  ask patches with [grass > 0 and grass < 4 and duration mod 7 = 0][
+  ask patches with [grass > 0 and grass < 4 ][;and duration mod 7 = 0
     set grass grass + 1
   ]
 end
