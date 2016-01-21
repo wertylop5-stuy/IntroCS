@@ -1,11 +1,14 @@
-;only supports one turtle as a result
-globals[turtleX turtleY]
-
 patches-own[life]
 turtles-own[snakeSize]
 
 ;util
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+to-report score
+  ask turtles [
+    report snakeSize
+  ]
+end
 
 ;color the patch beneath the turtle and set it to snakeSize
 to drawPatch
@@ -32,8 +35,8 @@ to checkCollision
   if pcolor = red and life < snakeSize [
     die
   ]
-  if pxcor = max-pxcor or pxcor = min-pxcor or
-  pycor = max-pycor or pycor = min-pycor [
+  if (pxcor + 1 = max-pxcor + 1 and heading = 90) or (pxcor = min-pxcor and heading = 270) or
+  (pycor = max-pycor and heading = 0) or (pycor = min-pycor and heading = 180) [
     die
   ]
 end
@@ -59,16 +62,30 @@ end
 ;    get turtle pos, turn snakeSize patches behind it red
 ;    intialize head patch to snakeSize
 to setup
+  ;initializing
+  let turtleX 0
+  let turtleY 0
+
   ca
   cro 1 [
     set size 2
     set snakeSize 5
+
     set turtleX xcor
     set turtleY ycor
+    drawPatch
   ]
 
-  ask patches with [pxcor = turtleX][
+  ;color the patches behind the turtle
+  let counter 4
 
+  while [counter > 0] [
+    set turtleY turtleY - 1
+    ask patch turtleX turtleY [
+      set pcolor red
+      set life counter
+    ]
+    set counter counter - 1
   ]
 
   ask one-of patches [set pcolor green]
@@ -76,17 +93,16 @@ end
 
 to go
   wait speed
-  ask turtles [
-    set turtleX xcor
-    set turtleY ycor
-    moveOn
-    ;checkCollision
-    ;eat
-  ]
+
   ask patches [
     reduceLife
     checkDeath
   ]
+
+  ask turtles [
+    moveOn
+  ]
+
   if not any? turtles [stop]
 end
 
@@ -133,7 +149,6 @@ end
 to goLeft
   set heading 270
 end
-
 
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -243,7 +258,7 @@ T
 T
 OBSERVER
 NIL
-NIL
+2
 NIL
 NIL
 1
@@ -260,7 +275,7 @@ NIL
 T
 OBSERVER
 NIL
-NIL
+1
 NIL
 NIL
 1
@@ -274,11 +289,22 @@ speed
 speed
 0.01
 1
-0.12
+0.08
 0.01
 1
 NIL
 HORIZONTAL
+
+MONITOR
+71
+445
+138
+490
+NIL
+score
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
