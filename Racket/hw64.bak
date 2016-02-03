@@ -1,4 +1,0 @@
-(define (sumOfList x tot)
-  (cond
-    ((null? x) tot)
-    (else (sumOfList (cdr x) (+ (car x) tot)))))

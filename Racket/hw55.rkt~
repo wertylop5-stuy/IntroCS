@@ -1,5 +1,0 @@
-(define (countAtoms x)
-  (cond
-    ((null? x) 0)
-    ((list? (car x)) (+ (countAtoms (cdr x)) (countAtoms (car x))))
-    (else (+ 1 (countAtoms (cdr x))))))
